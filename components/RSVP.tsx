@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Heart, Send } from "lucide-react";
 
 interface GuestInfo {
@@ -21,6 +21,17 @@ export default function RSVP() {
 
   const [submitted, setSubmitted] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [hearts, setHearts] = useState<{ x: string; duration: number; size: number }[]>([]);
+
+  useEffect(() => {
+    setMounted(true);
+    setHearts([...Array(6)].map(() => ({
+      x: Math.random() * 100 + "vw",
+      duration: 10 + Math.random() * 20,
+      size: 48 + Math.random() * 48
+    })));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,20 +72,20 @@ export default function RSVP() {
     <section id="rsvp" className="py-24 bg-ivory px-6 relative overflow-hidden">
       {/* Floating background hearts */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
-        {[...Array(6)].map((_, i) => (
+        {mounted && hearts.map((heart, i) => (
           <motion.div
             key={i}
-            initial={{ y: "100vh", x: Math.random() * 100 + "vw", opacity: 0 }}
+            initial={{ y: "100vh", x: heart.x, opacity: 0 }}
             animate={{ y: "-10vh", opacity: 1 }}
             transition={{ 
-              duration: 10 + Math.random() * 20, 
+              duration: heart.duration, 
               repeat: Infinity, 
               delay: i * 2,
               ease: "linear"
             }}
             className="absolute"
           >
-            <Heart size={48 + Math.random() * 48} />
+            <Heart size={heart.size} />
           </motion.div>
         ))}
       </div>
