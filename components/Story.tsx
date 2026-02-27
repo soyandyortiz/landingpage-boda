@@ -64,14 +64,32 @@ export default function Story() {
             className="relative"
           >
             <div className="absolute inset-0 bg-gold/20 -rotate-3 rounded-[3rem] -z-10" />
-            <div className="relative aspect-square md:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
-              <Image
-                src="/images/story.png"
-                alt="Nuestra Historia"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-1000"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gold-dark/20 to-transparent" />
+            <div className="grid grid-cols-2 gap-4 relative z-10 w-full">
+              <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white col-span-2">
+                <Image
+                  src="/images/2.jpeg"
+                  alt="Nuestra Historia 2"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-1000"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gold-dark/20 to-transparent" />
+              </div>
+              <div className="relative aspect-square rounded-[1.5rem] overflow-hidden shadow-xl border-4 border-white">
+                <Image
+                  src="/images/1.jpeg"
+                  alt="Nuestra Historia 1"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-1000"
+                />
+              </div>
+              <div className="relative aspect-square rounded-[1.5rem] overflow-hidden shadow-xl border-4 border-white">
+                <Image
+                  src="/images/3.jpeg"
+                  alt="Nuestra Historia 3"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-1000"
+                />
+              </div>
             </div>
             {/* Float badge */}
             <motion.div
