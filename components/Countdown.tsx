@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, Clock } from "lucide-react";
 
 export default function Countdown() {
-  const [civilTime, setCivilTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [churchTime, setChurchTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [ceremonyTime, setCeremonyTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [receptionTime, setReceptionTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const civilDate = new Date("February 26, 2026 14:00:00").getTime();
-    const churchDate = new Date("February 28, 2026 16:00:00").getTime();
+    const ceremonyDate = new Date("February 28, 2026 19:00:00").getTime();
+    const receptionDate = new Date("February 28, 2026 21:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -26,8 +26,8 @@ export default function Countdown() {
         };
       };
 
-      setCivilTime(calc(civilDate));
-      setChurchTime(calc(churchDate));
+      setCeremonyTime(calc(ceremonyDate));
+      setReceptionTime(calc(receptionDate));
     }, 1000);
 
     return () => clearInterval(interval);
@@ -89,9 +89,9 @@ export default function Countdown() {
             transition={{ duration: 0.8 }}
           >
             <TimerBlock 
-              title="Cercanos al Civil" 
-              time={civilTime} 
-              date="Jueves, 26 de Feb - 2:00 PM" 
+              title="Ceremonia Religiosa" 
+              time={ceremonyTime} 
+              date="Sábado, 28 de Feb - 7:00 PM" 
               icon={<Calendar className="w-5 h-5 text-gold" />}
             />
           </motion.div>
@@ -103,9 +103,9 @@ export default function Countdown() {
             transition={{ duration: 0.8 }}
           >
             <TimerBlock 
-              title="Gran Día Boda" 
-              time={churchTime} 
-              date="Sábado, 28 de Feb - 4:00 PM" 
+              title="Recepción" 
+              time={receptionTime} 
+              date="Sábado, 28 de Feb - 9:00 PM" 
               icon={<Calendar className="w-5 h-5 text-gold" />}
             />
           </motion.div>

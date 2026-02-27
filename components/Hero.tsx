@@ -10,14 +10,19 @@ export default function Hero() {
       id="inicio"
       className="relative h-screen flex items-center justify-center overflow-hidden"
     >
-      <motion.div 
+      <motion.div
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+        transition={{
+          duration: 10,
+          ease: "linear",
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/images/pareja.png"
+          src="/images/foto-novios.png"
           alt="Eric & Evelin"
           fill
           className="object-cover"
@@ -37,8 +42,20 @@ export default function Hero() {
             Nuestra Boda
           </p>
         </motion.div>
-        
-        <motion.h1 
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          className="mb-6"
+        >
+          <p className="text-sm md:text-lg font-serif italic text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-4">
+            Wilmer Ortiz, Jaqueline Valdivieso y Bolivar Cabezas, Aguedita
+            Robalino tienen el honor de invitar a la boda de nuestros hijos
+          </p>
+        </motion.div>
+
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
@@ -47,14 +64,14 @@ export default function Hero() {
           Eric <span className="text-gold">&</span> Evelin
         </motion.h1>
 
-        <motion.div 
+        <motion.div
           initial={{ width: 0 }}
           animate={{ width: "80px" }}
           transition={{ duration: 1, delay: 1 }}
           className="h-[2px] bg-gold mx-auto mb-8 shadow-inner"
         />
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.3 }}
@@ -64,13 +81,16 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8, delay: 1.8 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.8 }}
         >
           <motion.a
             href="#rsvp"
-            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(184, 134, 11, 0.4)" }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 20px 40px rgba(184, 134, 11, 0.4)",
+            }}
             whileTap={{ scale: 0.95 }}
             className="inline-block px-10 py-5 bg-gold text-white font-serif text-xl rounded-full shadow-2xl hover:bg-gold-dark transition-all duration-300 items-center justify-center"
           >
@@ -82,16 +102,18 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 20 }}
-        transition={{ 
-          delay: 2.5, 
-          duration: 1.5, 
-          repeat: Infinity, 
+        transition={{
+          delay: 2.5,
+          duration: 1.5,
+          repeat: Infinity,
           repeatType: "reverse",
-          ease: "easeInOut"
+          ease: "easeInOut",
         }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 cursor-pointer group"
         onClick={() => {
-          document.getElementById('countdown')?.scrollIntoView({ behavior: 'smooth' });
+          document
+            .getElementById("countdown")
+            ?.scrollIntoView({ behavior: "smooth" });
         }}
       >
         <span className="text-white/80 text-[10px] uppercase tracking-[0.3em] font-bold group-hover:text-gold transition-colors">

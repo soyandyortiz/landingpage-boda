@@ -6,30 +6,21 @@ import { Gift, Shirt, MapPin } from "lucide-react";
 export default function EventInfo() {
   const events = [
     {
-      title: "Matrimonio Civil",
-      date: "Jueves, 26 de Febrero",
-      time: "14:00",
-      location: "Registro Civil",
-      address: "Riobamba, Chimborazo",
-      link: "#",
-      icon: <MapPin className="w-6 h-6 text-gold" />,
-    },
-    {
       title: "Ceremonia Religiosa",
       date: "Sábado, 28 de Febrero",
-      time: "16:00",
-      location: "Iglesia Católica San Nicolás",
-      address: "Riobamba, Ecuador",
-      link: "https://maps.app.goo.gl/3Tzm57YZ7JYXjYhp9",
+      time: "19:00",
+      location: "Iglesia Católica San Francisco del Monte del Cedral de Penipe",
+      address: "Iglesia central de penipe frente al parque",
+      link: "https://maps.app.goo.gl/H1KDGJK6BXqEX8BR7?g_st=iw",
       icon: <MapPin className="w-6 h-6 text-gold" />,
     },
     {
       title: "Recepción",
       date: "Sábado, 28 de Febrero",
-      time: "15:00",
-      location: "Hacienda San José",
-      address: "Yaruquíes, Chimborazo",
-      link: "#",
+      time: "21:00",
+      location: "Rio Camping",
+      address: "Calles: Cap. Juan Maji & De los Duchicelas, Yaruquíes",
+      link: "https://maps.app.goo.gl/t8jGSXN6rWHeQEjB8",
       icon: <MapPin className="w-6 h-6 text-gold" />,
     },
   ];
@@ -51,7 +42,26 @@ export default function EventInfo() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="w-full overflow-hidden bg-gold/5 py-3 md:py-4 mb-14 border-y border-gold/20 flex">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              repeat: Infinity,
+              ease: "linear",
+              duration: 35
+            }}
+            className="flex whitespace-nowrap shrink-0"
+          >
+            {[...Array(4)].map((_, i) => (
+              <span key={i} className="text-gold-dark text-sm md:text-base px-8 md:px-12 font-serif flex items-center gap-2 drop-shadow-sm">
+                <span className="text-lg">🚐</span> 
+                <strong>Ruta para invitados:</strong> Salida del bus desde Riobamba hacia el cantón Penipe donde será la boda en la iglesia a las 19:00pm y también el regreso de Penipe hasta la Recepción donde se realizará el evento.
+              </span>
+            ))}
+          </motion.div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {events.map((event, index) => (
             <motion.div
               key={index}

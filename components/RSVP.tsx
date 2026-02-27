@@ -108,8 +108,8 @@ export default function RSVP() {
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-gold-dark mb-4">Confirmar Asistencia</h2>
           <div className="w-16 h-px bg-gold/40 mx-auto mb-6" />
-          <p className="text-foreground/60 text-sm leading-relaxed max-w-sm mx-auto">
-            Favor de confirmar antes del 15 de Febrero de 2026. <br/>
+          <p className="text-foreground/60 text-sm leading-relaxed max-w-sm mx-auto mb-4">
+            Favor de confirmar hasta el: Viernes, 27 de Febrero de 2026. <br/>
             <span className="text-gold font-bold uppercase tracking-widest text-[10px] mt-3 block bg-gold/5 py-2 rounded-lg border border-gold/10 italic">Invitación individual • Solo adultos</span>
           </p>
         </motion.div>
@@ -128,10 +128,30 @@ export default function RSVP() {
               🥂
             </motion.div>
             <h3 className="text-4xl font-serif text-gold-dark mb-4">¡Gracias por confirmar!</h3>
-            <p className="text-xl text-foreground/70 leading-relaxed font-serif italic mb-10">
-              Hemos registrado tu respuesta con éxito. <br/> 
-              Estamos ansiosos de verte en nuestro gran día.
-            </p>
+            <div className="text-xl text-foreground/70 leading-relaxed font-serif italic mb-10">
+              <p className="mb-4">
+                Hemos registrado tu respuesta con éxito. <br/> 
+                Estamos ansiosos de verte en nuestro gran día.
+              </p>
+            </div>
+            <div className="w-full overflow-hidden bg-gold/5 py-4 mb-10 rounded-2xl border border-gold/20 flex shadow-inner">
+              <motion.div
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
+                  repeat: Infinity,
+                  ease: "linear",
+                  duration: 25
+                }}
+                className="flex whitespace-nowrap shrink-0"
+              >
+                {[...Array(3)].map((_, i) => (
+                  <span key={i} className="text-gold-dark text-sm md:text-base px-6 font-serif flex items-center gap-2">
+                    <span className="text-lg">🚐</span> 
+                    <strong>Ruta:</strong> Salida del bus desde Riobamba hacia el cantón Penipe a las 19:00pm y regreso hasta la Recepción.
+                  </span>
+                ))}
+              </motion.div>
+            </div>
             <button 
               onClick={() => setSubmitted(false)}
               className="text-gold border-b-2 border-gold/30 hover:border-gold pb-1 text-sm uppercase tracking-[0.3em] font-bold transition-all"
